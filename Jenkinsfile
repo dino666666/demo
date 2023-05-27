@@ -7,4 +7,9 @@ pipeline{
             }
         }
     }
+    post{
+    failure{
+        mail to: '798255210@qq.com', subject: 'The Pipeline failed:'
+        }
+    }
 }
