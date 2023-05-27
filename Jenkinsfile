@@ -1,15 +1,12 @@
 pipeline{
     agent any
     stages {
-        stage("Build"){
+        stage("Example"){
             steps {
-                echo "hello world"
+                echo "Running ${env.BUILD_NUMBER} on ${env.JENKINS_URL}" //推荐方法一
+                echo "Running $env.BUILD_NUMBER on $env.JENKINS_URL" //推荐方法二
+                echo "Running ${BUILD_NUMBER} on ${JENKINS_URL}" //不推荐方法三
             }
-        }
-    }
-    post{
-    failure{
-        mail to: '798255210@qq.com', subject: 'The Pipeline failed:'
         }
     }
 }
