@@ -18,6 +18,7 @@
     2)BRANCH_NAME: 多分支pipeline项目支持
     3)BUILD_URL: 当前构建的页面URL.可以把链接放在邮件通知中
     4)GIT_BRANCH： 通过git拉取的源码构建的项目才会有此变量
+    5）自定义变量：
 
 
 
