@@ -10,16 +10,17 @@
 4.pipline语法
     -Groovy语法
     -最简结构：
-        pipeline{
-            agent any
-            stages {
-                stage("Build"){
-                    steps {
-                        echo "hello world"
-                    }
-                }
+# Jenkinsfile 文件
+pipeline{
+    agent any
+    stages {
+        stage("Build"){
+            steps {
+                echo "hello world"
             }
         }
+    }
+}
 
 5.gitlab代码拉取
     -配置github的公钥
