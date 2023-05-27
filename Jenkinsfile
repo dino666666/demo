@@ -10,8 +10,8 @@ pipeline{
             }
             steps {
                 sh "'${CC} $DEBUG_FLAGS"
-                echo "========================"
-                sh 'printenv'
+                //echo "========================"
+                //sh 'printenv'
             }
         }
     }
