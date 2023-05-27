@@ -9,7 +9,7 @@ pipeline{
                 DEBUG_FLAGS = '-g'
             }
             steps {
-                sh '${CC} $DEBUG_FLAGS'
+                sh "'${CC} $DEBUG_FLAGS"
                 echo "========================"
                 sh 'printenv'
             }
