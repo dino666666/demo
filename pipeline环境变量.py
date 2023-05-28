@@ -58,8 +58,13 @@
         -root@zhanghan-virtual-machine:~# pyenv --version
             pyenv 2.3.18
     2)Jenkins安装pyenv插件
-        -Dashboard-Manage Jenkins-插件管理-Available plugins
-
+        -Dashboard-Manage Jenkins-插件管理-Available plugins: pyenv...
+    3)Jenkins安装ShiningPanda插件
+        -Dashboard-Manage Jenkins-插件管理-Available plugins: ShiningPanda...
+    4)Jenkins配置python路径
+        -Manage Jenkins > Global Tool Configuration >Python 新增
+            Name：python3.10
+            Home or executable：/usr/bin/python3.10
 
 
 
