@@ -43,7 +43,7 @@
 
 2.Python环境安装
     Python开发通常会进行工程级别的环境隔离，也就是每个Python工程使用一个Python环境
-    1)安装pyenv
+    1)ubuntu安装pyenv
         -root@zhanghan-virtual-machine:~# cd ~
         -root@zhanghan-virtual-machine:~# pwd
             /root
@@ -57,9 +57,8 @@
         -root@zhanghan-virtual-machine:~# source ~/.bashrc
         -root@zhanghan-virtual-machine:~# pyenv --version
             pyenv 2.3.18
-
-
-
+    2)Jenkins安装pyenv插件
+        -Dashboard-Manage Jenkins-插件管理-Available plugins
 
 
 
