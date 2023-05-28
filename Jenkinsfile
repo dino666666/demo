@@ -1,16 +1,12 @@
 pipeline{
     agent any
-    environment{
-        CC = 'clang'
+    withPythonEnv('/usr/bin/python3.10'){
+        sh 'python3.10 --version'
     }
     stages {
         stage("Example"){
-            environment{
-                DEBUG_FLAGS = '-g'
-            }
             steps {
-                sh "${CC} ${DEBUG_FLAGS}"
-                sh 'printenv'
+                echo "Running ${env.BUILD_NUMBER} on ${env.JENKINS_URL}" //推荐方法一
             }
         }
     }
