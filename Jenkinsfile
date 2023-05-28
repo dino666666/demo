@@ -1,10 +1,7 @@
-pipeline{
-    agent any
-    stages {
-        stage("Example"){
-            withPythonEnv('/usr/bin/python3.10'){
-                sh 'python3.10 --version'
-            }
+node{
+    stage("test"){
+        withPythonEnv('/usr/bin/python3.10'){ // 填写刚刚在设置python路径时的名称
+            sh "python3.10 --version"
         }
     }
 }
