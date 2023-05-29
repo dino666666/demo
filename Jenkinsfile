@@ -4,13 +4,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // 检出代码步骤
+                echo ""// 检出代码步骤
                 // ...
             }
         }
 
         stage('Build') {
             steps {
+                echo ""
                 // 构建步骤
                 // ...
             }
@@ -18,6 +19,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
+                echo ""
                 // 运行测试步骤
                 // ...
             }
