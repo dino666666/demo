@@ -33,7 +33,7 @@ pipeline {
                     jdk: '/usr/bin/java',
                     properties: [],
                     reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'report']]
+                    results: [[path: '/var/lib/jenkins/workspace/pipline-hello-world/report']]
                 ])
             }
         }
