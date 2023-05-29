@@ -1,20 +1,39 @@
-pipeline{
+pipeline {
     agent any
+
     stages {
-        stage("Example"){
+        stage('Checkout') {
             steps {
-                echo "Running ${env.BUILD_NUMBER} on ${env.JENKINS_URL}" //推荐方法一
+                // 检出代码步骤
+                // ...
             }
         }
-    }
-}
 
-node{
-    stage("test"){
-        withPythonEnv('/usr/bin/python3.10'){ // 填写刚刚在设置python路径时的名称
-            sh "python3.10 --version"
-            sh "pwd"
-            sh "python3.10 debug.py"
+        stage('Build') {
+            steps {
+                // 构建步骤
+                // ...
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // 运行测试步骤
+                // ...
+            }
+        }
+
+        stage('Generate Allure Report') {
+            steps {
+                // 生成Allure报告步骤
+                allure([
+                    includeProperties: false,
+                    jdk: '/usr/bin/java',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
+                ])
+            }
         }
     }
 }

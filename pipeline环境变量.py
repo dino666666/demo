@@ -43,6 +43,26 @@
 
 2.Python环境安装
     Python开发通常会进行工程级别的环境隔离，也就是每个Python工程使用一个Python环境
+    pipeline{
+        agent any
+        stages {
+            stage("Example"){
+                steps {
+                    echo "Running ${env.BUILD_NUMBER} on ${env.JENKINS_URL}" //推荐方法一
+                }
+            }
+        }
+    }
+
+    node{
+        stage("test"){
+            withPythonEnv('/usr/bin/python3.10'){ // 填写刚刚在设置python路径时的名称
+                sh "python3.10 --version"
+                sh "pwd"
+                sh "python3.10 debug.py"
+            }
+        }
+    }
     1)ubuntu安装pyenv
         -root@zhanghan-virtual-machine:~# cd ~
         -root@zhanghan-virtual-machine:~# pwd
@@ -65,6 +85,10 @@
         -Manage Jenkins > Global Tool Configuration >Python 新增
             Name：python3.10
             Home or executable：/usr/bin/python3.10
+    5)Jenkins配置全局变量PYTHONIOENCODING
+        -Manage Jenkins-Configure System-全局属性-Environment variables
+            KEY: PYTHONIOENCODING
+            VALUE: UTF8
 
 
 
