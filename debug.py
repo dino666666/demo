@@ -8,5 +8,3 @@ if __name__ == "__main__":
      # import os
      # _out = os.popen("allure generate report -o allure_reports/ --clean").read()
      # print(_out)
-
-
