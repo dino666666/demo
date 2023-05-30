@@ -19,7 +19,8 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                echo ""
+                sh 'pwd'
+                sh '(python3.10 -m pytest debug.py -s -q --alluredir ${WORKSPACE}/allure-results)'
                 // 运行测试步骤
                 // ...
             }
