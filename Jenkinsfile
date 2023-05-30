@@ -33,8 +33,7 @@ pipeline {
                     jdk: '/usr/bin/java',
                     properties: [],
                     reportBuildPolicy: 'ALWAYS',
-                    report: 'report'
-                    results: [[path: 'report/allure-report']]
+                    results: [[path: 'allure-results']]
                 ])
             }
         }
