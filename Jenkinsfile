@@ -20,7 +20,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh 'pwd'
-                sh '(python3.10 debug.py'
+                sh '(python3.10 debug.py)'
                 //sh '(python3.10 -m pytest debug.py -s -q --alluredir ${WORKSPACE}/allure-results)'
                 // 运行测试步骤
                 // ...
