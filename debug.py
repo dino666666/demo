@@ -1,6 +1,9 @@
 
 import sys
 print(sys.path)
+sys.path.append("/home/zhanghan/.local/lib/python3.10/site-packages")
+print(sys.path)
+
 import pytest
 
 
