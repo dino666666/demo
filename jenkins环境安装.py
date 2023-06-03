@@ -15,7 +15,10 @@
 4.检查Jenkins运行状态
     -sudo systemctl status jenkins
 
-5.Jenkins配置
+5.打开Jenkins
+    -http://192.168.10.107:8080/
+
+6.Jenkins配置
     - [可选]开放端口： sudo ufw allow 8080
     - [可选]修改端口： vi /etc/default/jenkins  修改HTTP_PORT
     -[可选]修改jenkins工作目录：
