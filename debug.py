@@ -1,14 +1,13 @@
 
 import sys
-print(sys.path)
-sys.path.append("/home/zhanghan/.local/lib/python3.10/site-packages")
+import os
 print(sys.path)
 
 import pytest
 
 
 if __name__ == "__main__":
-     pytest.main(['-s', '-v', 'test_demo.py', '-q', '--alluredir', './allure-results'])
+     os.system('pytest -s test_demo.py --alluredir ./report/allure_raw')
      # import os
 
      # _out = os.popen("allure generate allure-results -o allure_reports/ --clean").read()

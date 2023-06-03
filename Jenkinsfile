@@ -2,43 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('checkout code') {
             steps {
-                echo ""// 检出代码步骤
-                // ...
+                //checkout([$class: 'GitSCM', branches: [[name: '*/分支']], extensions: [], userRemoteConfigs: [[credentialsId: '秘钥id', url: '你的仓库地址']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [],
+                userRemoteConfigs: [[credentialsId: 'zh', url: 'git@github.com:dino666666/jenkins_study.git']]])
             }
         }
-
-        stage('Build') {
-            steps {
-                echo ""
-                // 构建步骤
-                // ...
-            }
-        }
-
-        stage('Run Tests') {
+        stage('auto test') {
             steps {
                 sh 'pwd'
-                sh '(python3.10 debug.py)'
-                //sh '(python3.10 -m pytest debug.py -s -q --alluredir ${WORKSPACE}/allure-results)'
-                // 运行测试步骤
-                // ...
+                sh 'python3 test_01.py'
             }
         }
-
-        stage('Generate Allure Report') {
-            steps {
-                // 生成Allure报告步骤
-                allure([
-                    includeProperties: false,
-                    jdk: '/usr/bin/java',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    report: 'allure-report',
-                    results: [[path: 'allure-results']]
-                ])
-            }
-        }
+    }
+    post {
+      success {
+      	// 注意报告地址写相对路径，也就是--alluredir后面的路径,如我的报告路径：report/allure_raw，但不要写成 /report/allure_raw
+        allure includeProperties: false, jdk: 'jdk11', results: [[path: 'report/allure_raw']]
+      }
     }
 }
