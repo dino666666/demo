@@ -14,6 +14,7 @@
 
 4.检查Jenkins运行状态
     -sudo systemctl status jenkins
+    -sudo systemctl restart jenkins   //重启
 
 5.打开Jenkins
     -http://192.168.10.107:8080/
@@ -27,6 +28,9 @@
     -[可选]JENKINS_HOME在哪里：/var/lib/jenkins
     -[可选]jenkins日志文件： cat /var/log/jenkins/
     -[可选]jenkins配置文件：/etc/default/jenkins
+
+7.Jenkins第一次登录密码
+    - sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 
 问题一：sudo apt update时报 “由于没有公钥，无法验证下列签名： NO_PUBKEY 5BA31D57EF5975CA” 错误

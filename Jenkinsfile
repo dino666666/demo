@@ -6,7 +6,7 @@ pipeline {
             steps {
                 //checkout([$class: 'GitSCM', branches: [[name: '*/分支']], extensions: [], userRemoteConfigs: [[credentialsId: '秘钥id', url: '你的仓库地址']]])
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [],
-                userRemoteConfigs: [[credentialsId: 'zh', url: 'git@github.com:dino666666/jenkins_study.git']]])
+                userRemoteConfigs: [[credentialsId: 'zh', url: 'git@github.com:dino666666/tmp.git']]])
             }
         }
         stage('auto test') {
