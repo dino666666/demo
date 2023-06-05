@@ -33,7 +33,7 @@
     -sudo systemctl restart jenkins   //重启
 
 5.打开Jenkins
-    -http://192.168.10.107:8080/
+    -http://192.168.10.107:8080/ 1
 
 
 
