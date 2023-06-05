@@ -12,12 +12,33 @@
     -sudo apt update
     -sudo apt install jenkins
 
+4.切换jenkins用户
+    -zhanghan@zhanghan-virtual-machine:~$ sudo chmod 777 /etc/default/jenkins
+    -zhanghan@zhanghan-virtual-machine:~$ sudo vim /etc/default/jenkins
+        JENKINS_USER=zhanghan
+        JENKINS_GROUP=zhanghan
+    -zhanghan@zhanghan-virtual-machine:~$ sudo chmod 777 /usr/lib/systemd/system/jenkins.service
+    -zhanghan@zhanghan-virtual-machine:~$ vim /usr/lib/systemd/system/jenkins.service
+        User=zhanghan
+        Group=zhanghan
+    -zhanghan@zhanghan-virtual-machine:~$ sudo systemctl daemon-reload
+        选择zhanghan用户
+    -zhanghan@zhanghan-virtual-machine:~$ sudo chown -R zhanghan:zhanghan /var/lib/jenkins
+    -zhanghan@zhanghan-virtual-machine:~$ sudo chown -R zhanghan:zhanghan /var/cache/jenkins
+    -zhanghan@zhanghan-virtual-machine:~$ sudo chown -R zhanghan:zhanghan /var/log/jenkins
+    -zhanghan@zhanghan-virtual-machine:~$ sudo systemctl restart jenkins
+
 4.检查Jenkins运行状态
     -sudo systemctl status jenkins
     -sudo systemctl restart jenkins   //重启
 
 5.打开Jenkins
     -http://192.168.10.107:8080/
+
+
+
+7.Jenkins第一次登录密码
+    - sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 6.Jenkins配置
     - [可选]开放端口： sudo ufw allow 8080
@@ -28,9 +49,6 @@
     -[可选]JENKINS_HOME在哪里：/var/lib/jenkins
     -[可选]jenkins日志文件： cat /var/log/jenkins/
     -[可选]jenkins配置文件：/etc/default/jenkins
-
-7.Jenkins第一次登录密码
-    - sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 
 问题一：sudo apt update时报 “由于没有公钥，无法验证下列签名： NO_PUBKEY 5BA31D57EF5975CA” 错误
@@ -47,14 +65,4 @@
     sudo rm -rf info                # 把自己新建的info文件夹删掉
     sudo mv info_bak info           # 把以前的info文件夹重新改回名
 
-问题三：sudo systemctl start jenkins.service 提示启动失败
-解决：
-    -vi /etc/default/jenkins  ,修改以下配置
-        JENKINS_USER=root
-        JENKINS_GROUP=root
-    -修改权限
-        chown -R jenkins:jenkins /var/lib/jenkins
-        chown -R jenkins:jenkins /var/cache/jenkins
-        chown -R jenkins:jenkins /var/log/jenkins
-        sudo systemctl start jenkins.service
 '''
