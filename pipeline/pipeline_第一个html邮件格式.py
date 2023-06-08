@@ -77,8 +77,33 @@
     </html>
 
 ============================================================在公司优化后============================================================
-
-
+1.pipeline脚本：
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo '${env.BUILD_NUMBER}'
+                sh 'pwd'
+                sh 'rm -rf /var/lib/jenkins/workspace/test_demo/*'
+                sh 'cp -r /home/jmgo/下载/stautotest/* .'
+                sh 'python3 run.py'
+            }
+        }
+    }
+    post {
+        success {
+                allure includeProperties: false, jdk: 'jdk1.8', results: [[path: 'report/allure_raw']]
+            }
+        always {
+            emailext (
+                subject: '${DEFAULT_SUBJECT}',
+                body: '${DEFAULT_CONTENT}',
+                to: 'zhanghan@jmgo.com'
+            )
+        }
+    }
+}
 
 
 
