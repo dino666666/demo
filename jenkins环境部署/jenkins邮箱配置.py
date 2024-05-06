@@ -7,7 +7,7 @@
 2.jenkins邮箱配置---163邮箱
 2.1 添加证书
     进入Manage Jenkins -> 凭据 -> 系统
-    1)添加凭据
+    1)添加凭据(拉取gitlab代码时填写的凭证，实际上就是gitlab网页的用户密码如root/Zxiptv_7f)
         范围： 全局
         用户名： zhanghanyxx@163.com
             Treat username as secret： 取消勾选
